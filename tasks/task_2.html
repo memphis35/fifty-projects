@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>02. Progress steps</title>
+        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" href="task_2.css">
+    </head>
+    <body>
+        <a href="../index.html" class="back-to-main-ref">back to main</a>
+        <ol id="steps" class="steps">
+            <li class="step-element step">
+                <p class="number">1</p>
+            </li>
+            <li class="step-element line">
+
+            </li>
+            <li class="step-element step">
+                <p class="number">2</p>
+            </li>
+            <li class="step-element line">
+            </li>
+            <li class="step-element step">
+                <p class="number">3</p>
+            </li>
+            <li class="step-element line">
+            </li>
+            <li class="step-element step">
+                <p class="number">4</p>
+            </li>
+        </ol>
+        <div class="buttons">
+            <button id="prev" class="btn">prev</button>
+            <button id="next" class="btn">next</button>
+        </div>
+        <script>
+            const allSteps = [...document.getElementById("steps").children];
+            let index = 0;
+            allSteps[index].classList.add("active");
+
+            const prevBtn = document.getElementById("prev");
+            prevBtn.disabled = true;
+            prevBtn.classList.add("disabled");
+
+            prevBtn.addEventListener('click', () => {
+                nextBtn.classList.remove("disabled");
+                nextBtn.disabled = false;
+                if (index > 0) {
+                    allSteps[index].classList.remove("active");
+                    allSteps[index - 1].classList.remove("active-line");
+                    index -= 2;
+                    if (index <= 0) {
+                        prevBtn.classList.add("disabled");
+                        prevBtn.disabled = true;
+                    }
+                }
+            });
+
+            const nextBtn = document.getElementById("next");
+            nextBtn.addEventListener('click', () => {
+                prevBtn.classList.remove("disabled");
+                prevBtn.disabled = false;
+                if (index + 1 < allSteps.length) {
+                    index += 2;
+                    allSteps[index - 1].classList.add("active-line");
+                    allSteps[index].classList.add("active");
+                    if (index + 1 >= allSteps.length) {
+                        nextBtn.classList.add("disabled");
+                        nextBtn.disabled = true;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
