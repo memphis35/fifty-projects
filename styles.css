@@ -1,5 +1,5 @@
 :root {
-    --pink: #F09EA7;
+    --cyan: #9ef0ed;
     --orange: #F6CA94;
     --yellow: #FAFABE;
     --green: #C1EBC0;
@@ -63,6 +63,15 @@ a {
     opacity: 50%;
 }
 
+.back-to-main-ref {
+    padding: 20px;
+
+    border: 1px solid black;
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+}
+
 .monday {
     background-color: var(--violet);
 }
@@ -81,4 +90,12 @@ a {
 
 .friday {
     background-color: var(--blue);
+}
+
+.saturday {
+    background-color: var(--rose);
+}
+
+.sunday {
+    background-color: var(--cyan);
 }

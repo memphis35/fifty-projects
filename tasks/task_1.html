@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>01. Expanding cards</title>
+        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" href="task_1.css">
+    </head>
+    <body class="main">
+        <a href="../index.html" class="back-to-main-ref">back to main</a>
+        <ul class="cards">
+            <li><img src="../img/task_1/wall_1.jpeg" alt="wall_1" class="card active"></li>
+            <li><img src="../img/task_1/wall_2.jpeg" alt="wall_2" class="card"></li>
+            <li><img src="../img/task_1/wall_3.jpeg" alt="wall_3" class="card"></li>
+            <li><img src="../img/task_1/wall_4.jpeg" alt="wall_4" class="card"></li>
+            <li><img src="../img/task_1/wall_5.jpeg" alt="wall_5" class="card"></li>
+        </ul>
+        <script>
+            const allCards = document.querySelectorAll('.card');
+            allCards.forEach(card => {
+                card.addEventListener('click', event => {
+                    allCards.forEach(c => c.classList.remove("active"));
+                    event.target.classList.add("active");
+                });
+            });
+        </script>
+    </body>
+</html>
